@@ -38,6 +38,15 @@ router.patch("/users/:id", async (req, res) => {
   }
 });
 
+router.delete("/users/:id", async (req, res) => {
+  try {
+    const user = await User.findByIdAndDelete(req.params.id);
+    return res.status(200).send(user);
+  } catch (err) {
+    return res.status(500).send({ Message: err.message });
+  }
+});
+
 router.get("/:id/addresses", async (req, res) => {
   try {
     const user = await User.findById(req.params.id);

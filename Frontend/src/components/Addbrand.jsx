@@ -1,8 +1,11 @@
 import { useState } from "react";
 import "./style.css";
+import { useNavigate } from "react-router-dom";
 
 export const Addbrand = () => {
   const [form, setForm] = useState({});
+  const navigate = useNavigate();
+
   const handlechange = (e) => {
     const { name, value } = e.target;
 
@@ -92,6 +95,9 @@ export const Addbrand = () => {
         </div>
 
         <input className="submit" type="submit" value="Submit" />
+        <button className="submit" onClick={() => navigate("/brand")}>
+          Brand Page
+        </button>
       </form>
     </div>
   );

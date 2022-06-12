@@ -6,7 +6,7 @@ const userSchema = new mongoose.Schema(
     lastName: { type: String, required: true },
     age: { type: Number, required: true },
     email: { type: String, required: true },
-    addresses: [
+    address: [
       {
         flatNo: { type: String, required: false },
         area: { type: String, required: false },

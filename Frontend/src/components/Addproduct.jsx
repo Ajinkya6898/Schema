@@ -1,8 +1,11 @@
 import { useState } from "react";
 import "./style.css";
+import { useNavigate } from "react-router-dom";
 
 export const Addproduct = () => {
   const [form, setForm] = useState({});
+  const navigate = useNavigate();
+
   const handlechange = (e) => {
     const { name, value } = e.target;
 
@@ -21,7 +24,6 @@ export const Addproduct = () => {
       headers: { "Content-Type": "application/json" },
     });
   };
-
   return (
     <div className="container">
       <form onSubmit={handleSubmit}>
@@ -107,6 +109,9 @@ export const Addproduct = () => {
         </div>
 
         <input className="submit" type="submit" value="Submit" />
+        <button className="submit" onClick={() => navigate("/product")}>
+          Product Page
+        </button>
       </form>
     </div>
   );

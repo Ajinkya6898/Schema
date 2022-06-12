@@ -38,4 +38,12 @@ router.patch("/:id", async (req, res) => {
   }
 });
 
+router.delete("/:id", async (req, res) => {
+  try {
+    const product = await Product.findByIdAndDelete(req.params.id);
+    return res.status(200).send(product);
+  } catch (err) {
+    return res.status(500).send({ Message: err.message });
+  }
+});
 module.exports = router;
